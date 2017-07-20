@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '4.0'
+- '8.0'
+after_script: bash <(curl -s https://codecov.io/bash)
+deploy:
+  - provider: npm
+    email: tituswormer@gmail.com
+    api_key:
+      secure: lGsadNnEhXndMNiwCokBtExCsArjn6IWIKsZwD7i9PlgRM4cdTKnJSYva8Bclcu+50VqFcX5KJ2ZLGztXX+UhCWu+d+KVuageEI9M8JNoM3/kKmNK8GWQkhkkKdxMhwQtvb0BtfKQQmqOtG8gxzjQCm0ad3J3uXcpl0uagGeAylIRcIL3rFfMonqYcaMcI9VpDV9Giv0D9CmeGCdWbbw2dPX8iQwla/6m6gx5AA0/U1Xl/NIWaCk6/GJpj/s0cWE6QNt0vG0Jccz0O1PzK0NR3MRLx8VlxV0DQN2+aH7oWB3eLiZ6BCPa81PN/a7NQPOQ33h81bnamu1XTuD2B58UAsKI+EWNKQZ4haN8H8MzN6pCzFSjBCZGizapjgK8JOCBpnBu0pUKnQ0qJPl5YDeAZtluyP+yvQZt5sLpzDn5F87OW6YyM05xnE1vCGLMA5FeMmGTysJUB5VLU+Rsl5WoafwrVd/BqU6c4l1bnw5++gBoabkP+VgyXy+zYmGCLR5QOkkG4vKKylOYgpmBQkBvlhgeW4F3yjy7ZjwDmA1vi+QdStgTYhq7i+eT0fvI7KGeQmxBe19420rLG36qGC9PDpmg2ulJpnPPf+1zgIsTi3qFuaMifnshzBhHsONioecwMspGC3NyNT18rL90QB66atc4CCGW8Yb7VqSwrriDbs=
+    on:
+      tags: true
+      node: '8.0'
+  - provider: releases
+    api_key:
+      secure: ZAM48tWfe2biVONE7gQYhc910kK9yoF8vSyoXPYhvboqNT7gsw+oL9ODr773GLdVUMEbT1D+anMd4a01wHLdmRIkEx79h2cXv1o2OJwbnQBfMG9lOMOw3dFUG+DwHe/qMRXyGJDbOVEHsnhaFJ4JkDkrDGa/R2j99yWxfuF0zN7hWivdW2UaFc3545+ihSC6tY5fTesKUiNIm2JjhPD0SNwR9x+ejoAlWrS7Vj+0sT3Yh6CtZsaUJ0AszWdJZoOE+SljiVj6/hZqO0vuWKNOrbKE8x4t+7GgSDuF5ultUVPc5ymU3S3v7djaVnjYrNaSIVYQ1Ph2Rk03dEqT02SVzEj8gLWM9U4rtR8+toScCL0a5Lhr3wfw40upu8tWsUSk1TpuV8jHmYjoXBPbACc74VFoRuQgUr2IrrcDkBTculsNODzJ1hvDMqyzLp2PRfkZbRFn2BEYgbL4wCqEMntOHmn+ByXoCS0yiRVPO0125Vi7HjGX3OD12EsJb9CNplSFTsH1vXzV1ax6fkXcCtIgfMnaDlWM7p4SB5qPfeE5avGFRNkKb8NbcYFbc2AhgkdSPItlTplw2CS0tS0L2+/cbZf7Leb8jpZFTT+EPXSYwGf1AFob7tVlmMJRjNMfojq+nSuNkWxWIcXBE5ax/DlWhgn0pKOLw0+SqfL8rapIAxI=
+    file:
+      - "remark-breaks.js"
+      - "remark-breaks.min.js"
+    on:
+      tags: true
+      node: '8.0'

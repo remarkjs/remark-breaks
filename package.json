@@ -27,7 +27,7 @@
     "remark-cli": "^4.0.0",
     "remark-parse": "^4.0.0",
     "remark-preset-wooorm": "^3.0.0",
-    "remark-rehype": "^2.0.1",
+    "remark-rehype": "^3.0.0",
     "tape": "^4.4.0",
     "unified": "^6.1.5",
     "xo": "^0.18.0"

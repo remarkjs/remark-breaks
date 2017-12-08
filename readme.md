@@ -64,7 +64,7 @@ spaces before newlines.
 
 ## Related
 
-*   [`remark-github`](https://github.com/wooorm/remark-github)
+*   [`remark-github`](https://github.com/remarkjs/remark-github)
     — Auto-link references like in GitHub issues, PRs, and comments
 
 ## Contribute
@@ -80,17 +80,17 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/remark-breaks.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-breaks.svg
 
-[build-status]: https://travis-ci.org/wooorm/remark-breaks
+[build-status]: https://travis-ci.org/remarkjs/remark-breaks
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-breaks.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-breaks.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/remark-breaks
+[coverage-status]: https://codecov.io/github/remarkjs/remark-breaks
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/remark
+[chat]: https://gitter.im/remarkjs/Lobby
 
 [license]: LICENSE
 
@@ -98,7 +98,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[remark]: https://github.com/wooorm/remark
+[remark]: https://github.com/remarkjs/remark
 
 [contribute]: https://github.com/remarkjs/remark/blob/master/contributing.md
 

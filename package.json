@@ -9,8 +9,8 @@
     "markdown",
     "remark"
   ],
-  "repository": "wooorm/remark-breaks",
-  "bugs": "https://github.com/wooorm/remark-breaks/issues",
+  "repository": "remarkjs/remark-breaks",
+  "bugs": "https://github.com/remarkjs/remark-breaks/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"

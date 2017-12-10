@@ -65,8 +65,12 @@ hard breaks without needing spaces before newlines.
 
 ## Related
 
+*   [`remark-frontmatter`](https://github.com/remarkjs/remark-frontmatter)
+    — Frontmatter (yaml, toml, and more) support
 *   [`remark-github`](https://github.com/remarkjs/remark-github)
     — Auto-link references like in GitHub issues, PRs, and comments
+*   [`remark-math`](https://github.com/rokt33r/remark-math)
+    — Inline and block math
 
 ## Contribute
 

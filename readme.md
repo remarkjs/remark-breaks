@@ -12,7 +12,8 @@ npm install remark-breaks
 
 ## Usage
 
-Say we have the following file, `example.md`:
+Say we have the following file, `example.md` (note: there’s no spaces after
+`a`):
 
 ```markdown
 This is a
@@ -59,8 +60,8 @@ paragraph.</p>
 
 ### `remark.use(breaks)`
 
-Add support for GitHub style (in comments) hard breaks without needing
-spaces before newlines.
+Add support for GitHub style (in issues, pull requests, comments, and releases)
+hard breaks without needing spaces before newlines.
 
 ## Related
 
@@ -69,7 +70,8 @@ spaces before newlines.
 
 ## Contribute
 
-See [`contribute.md` in `remarkjs/remarkj`][contribute] for ways to get started.
+See [`contribute.md` in `remarkjs/remarkjs`][contribute] for ways to get
+started.
 
 This organisation has a [Code of Conduct][coc].  By interacting with this
 repository, organisation, or community you agree to abide by its terms.

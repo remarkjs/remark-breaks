@@ -23,23 +23,23 @@ paragraph.
 And our script, `example.js`, looks as follows:
 
 ```javascript
-var vfile = require('to-vfile');
-var report = require('vfile-reporter');
-var unified = require('unified');
-var markdown = require('remark-parse');
-var remark2rehype = require('remark-rehype');
-var html = require('rehype-stringify');
-var breaks = require('remark-breaks');
+var vfile = require('to-vfile')
+var report = require('vfile-reporter')
+var unified = require('unified')
+var markdown = require('remark-parse')
+var remark2rehype = require('remark-rehype')
+var html = require('rehype-stringify')
+var breaks = require('remark-breaks')
 
 unified()
   .use(markdown)
   .use(breaks)
   .use(remark2rehype)
   .use(html)
-  .process(vfile.readSync('example.md'), function (err, file) {
-    if (err) throw err;
-    console.log(String(file));
-  });
+  .process(vfile.readSync('example.md'), function(err, file) {
+    if (err) throw err
+    console.log(String(file))
+  })
 ```
 
 Now, running `node example` yields:

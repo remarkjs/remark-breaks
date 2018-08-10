@@ -1,34 +1,30 @@
-'use strict';
+'use strict'
 
-var test = require('tape');
-var unified = require('unified');
-var markdown = require('remark-parse');
-var html = require('rehype-stringify');
-var remark2rehype = require('remark-rehype');
-var breaks = require('.');
+var test = require('tape')
+var unified = require('unified')
+var markdown = require('remark-parse')
+var html = require('rehype-stringify')
+var remark2rehype = require('remark-rehype')
+var breaks = require('.')
 
-test('breaks()', function (t) {
-  t.equal(typeof breaks, 'function', 'should be a function');
+test('breaks()', function(t) {
+  t.equal(typeof breaks, 'function', 'should be a function')
 
   t.throws(
-    function () {
-      unified().use(breaks).freeze();
+    function() {
+      unified()
+        .use(breaks)
+        .freeze()
     },
     /^Error: Missing parser to attach `remark-breaks` to/,
     'should not throw if without parser'
-  );
+  )
 
-  t.end();
-});
+  t.end()
+})
 
-test('fixtures', function (t) {
-  var proc = unified()
-    .use(markdown)
-    .use(breaks)
-    .use(remark2rehype)
-    .use(html);
-
-  [
+test('fixtures', function(t) {
+  var fixtures = [
     {
       in: 'This is a\nparagraph.',
       out: '<p>This is a<br>\nparagraph.</p>',
@@ -49,11 +45,19 @@ test('fixtures', function (t) {
       out: '<p>This is a<br>\nparagraph.</p>',
       name: 'three spaces'
     }
-  ].forEach(check);
+  ]
 
-  t.end();
+  var proc = unified()
+    .use(markdown)
+    .use(breaks)
+    .use(remark2rehype)
+    .use(html)
+
+  fixtures.forEach(check)
+
+  t.end()
 
   function check(fixture) {
-    t.equal(String(proc.processSync(fixture.in)), fixture.out, fixture.name);
+    t.equal(String(proc.processSync(fixture.in)), fixture.out, fixture.name)
   }
-});
+})

@@ -5,7 +5,7 @@ var unified = require('unified');
 var markdown = require('remark-parse');
 var html = require('rehype-stringify');
 var remark2rehype = require('remark-rehype');
-var breaks = require('./');
+var breaks = require('.');
 
 test('breaks()', function (t) {
   t.equal(typeof breaks, 'function', 'should be a function');

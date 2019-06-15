@@ -1,13 +1,17 @@
 {
   "name": "remark-breaks",
   "version": "1.0.2",
-  "description": "Breaks support, without needing spaces, for remark",
+  "description": "remark plugin to support breaks, without needing spaces",
   "license": "MIT",
   "keywords": [
+    "unified",
+    "remark",
+    "plugin",
+    "mdast",
+    "markdown",
     "break",
     "newline",
-    "markdown",
-    "remark"
+    "linefeed"
   ],
   "repository": "remarkjs/remark-breaks",
   "bugs": "https://github.com/remarkjs/remark-breaks/issues",

@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
@@ -9,7 +9,7 @@ deploy:
   api_key:
     secure: DSie/IjYUBvjvTvs8pUBSN3ov3YHVFnXRDAu2CGa8slH1nj21daBfrkiFVtey4pQAD2v9supLLBSE9NOEDayLs83c86mVtp0buOEd1moWKHG7j3VgGtyTOGQfv9NGCnb/IXmmnygPiRiq0TDpWVfkXIsjgvUJ5bA4UI8twATCMXS/WcvQTpGM0yM8HZRBLClXabDRtYbzp+17cQ1YUKgl7OvOs0PqP7p7GixazJCObfed7LdAuI0KUcEueZXakQ7J8BcNehoSqIbnGtPX1aZtoyxrjHxzFoo2zvTlBgCXN8zH588PmBOzE8L3l55HBXgdawWY5YqkRKO+ZNE3lrqXv4454nL+OW4sWK7C4xnbeB30t0v9kpnPe/fjsLPIex1dzuFESvmNQxfh0B4Wql+fQKwC+QsOB19kjXI5i4Q4lTtDGTKdK1n8LKyzVPj1i7tTsAI/tEdRBtHIhtGFZjd3eKRAULgilsaRRtP5Jxkxly2CXaWL8+PBEJCmQWZhTvNTF2VaNjklVkUampX+4xl2V0agSUbVEmmI/7Rwz2hMYYm63N2r9ZlEAdqlIXqFZjxoxUi0sRAe+Jat/jtlxm6od0eyotKykLY43T8NFmT6Syw35RLWowM+VIsWojbG8Lt5IWZulR1WMyLqOzduaPff1YWjEqn0fqqJFeo3Ou8InI=
   file:
-    - "remark-breaks.js"
-    - "remark-breaks.min.js"
+    - 'remark-breaks.js'
+    - 'remark-breaks.min.js'
   on:
     tags: true

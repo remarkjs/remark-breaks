@@ -3,23 +3,24 @@
 [![Build][build-badge]][build]
 [![Coverage][coverage-badge]][coverage]
 [![Downloads][downloads-badge]][downloads]
-[![Chat][chat-badge]][chat]
+[![Size][size-badge]][size]
 [![Sponsors][sponsors-badge]][collective]
 [![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
-Breaks support, without needing spaces, for [**remark**][remark].
+[**remark**][remark] plugin to add break support, without needing spaces.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install remark-breaks
 ```
 
-## Usage
+## Use
 
-Say we have the following file, `example.md` (note: there’s no spaces after
+Say we have the following file, `example.md` (note: there are no spaces after
 `a`):
 
 ```markdown
@@ -29,7 +30,7 @@ paragraph.
 
 And our script, `example.js`, looks as follows:
 
-```javascript
+```js
 var vfile = require('to-vfile')
 var report = require('vfile-reporter')
 var unified = require('unified')
@@ -65,10 +66,11 @@ paragraph.</p>
 
 ## API
 
-### `remark.use(breaks)`
+### `remark().use(breaks)`
 
-Add support for GitHub style (in issues, pull requests, comments, and releases)
-hard breaks without needing spaces before newlines.
+Plugin to add break support without needing spaces.
+This adds support for GitHub style (in issues, pull requests, comments, and
+releases) hard breaks without needing spaces before newlines.
 
 ## Related
 
@@ -81,11 +83,13 @@ hard breaks without needing spaces before newlines.
 
 ## Contribute
 
-See [`contributing.md` in `remarkjs/remark`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`remarkjs/.github`][health] for ways
+to get started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -93,7 +97,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-breaks.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-breaks/master.svg
 
 [build]: https://travis-ci.org/remarkjs/remark-breaks
 
@@ -105,9 +109,9 @@ repository, organisation, or community you agree to abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/remark-breaks
 
-[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-breaks.svg
 
-[chat]: https://spectrum.chat/unified/remark
+[size]: https://bundlephobia.com/result?p=remark-breaks
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -115,14 +119,22 @@ repository, organisation, or community you agree to abide by its terms.
 
 [collective]: https://opencollective.com/unified
 
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/remark
+
+[npm]: https://docs.npmjs.com/cli/install
+
+[health]: https://github.com/remarkjs/.github
+
+[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+
+[support]: https://github.com/remarkjs/.github/blob/master/support.md
+
+[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+
 [license]: license
 
 [author]: https://wooorm.com
 
-[npm]: https://docs.npmjs.com/cli/install
-
 [remark]: https://github.com/remarkjs/remark
-
-[contributing]: https://github.com/remarkjs/remark/blob/master/contributing.md
-
-[coc]: https://github.com/remarkjs/remark/blob/master/code-of-conduct.md

@@ -72,6 +72,12 @@ Plugin to add break support without needing spaces.
 This adds support for GitHub style (in issues, pull requests, comments, and
 releases) hard breaks without needing spaces before newlines.
 
+## Security
+
+Use of `remark-breaks` does not involve [**rehype**][rehype] ([**hast**][hast])
+or user content so there are no openings for [cross-site scripting (XSS)][xss]
+attacks.
+
 ## Related
 
 *   [`remark-frontmatter`](https://github.com/remarkjs/remark-frontmatter)
@@ -138,3 +144,9 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [remark]: https://github.com/remarkjs/remark
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[rehype]: https://github.com/rehypejs/rehype
+
+[hast]: https://github.com/syntax-tree/hast

@@ -2,6 +2,9 @@
 
 module.exports = breaks
 
+var lineFeed = 10
+var space = 32
+
 function breaks() {
   var parser = this.Parser
   var tokenizers
@@ -19,28 +22,23 @@ function breaks() {
   function tokenizeBreak(eat, value, silent) {
     var length = value.length
     var index = -1
-    var queue = ''
-    var character
+    var code
 
     while (++index < length) {
-      character = value.charAt(index)
+      code = value.charCodeAt(index)
 
-      if (character === '\n') {
+      if (code === lineFeed) {
         /* istanbul ignore if - never used (yet) */
         if (silent) {
           return true
         }
 
-        queue += character
-
-        return eat(queue)({type: 'break'})
+        return eat(value.slice(0, index + 1))({type: 'break'})
       }
 
-      if (character !== ' ') {
+      if (code !== space) {
         return
       }
-
-      queue += character
     }
   }
 }

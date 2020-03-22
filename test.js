@@ -7,14 +7,12 @@ var html = require('rehype-stringify')
 var remark2rehype = require('remark-rehype')
 var breaks = require('.')
 
-test('breaks()', function(t) {
+test('breaks()', function (t) {
   t.equal(typeof breaks, 'function', 'should be a function')
 
   t.throws(
-    function() {
-      unified()
-        .use(breaks)
-        .freeze()
+    function () {
+      unified().use(breaks).freeze()
     },
     /^Error: Missing parser to attach `remark-breaks` to/,
     'should not throw if without parser'
@@ -23,7 +21,7 @@ test('breaks()', function(t) {
   t.end()
 })
 
-test('fixtures', function(t) {
+test('fixtures', function (t) {
   var fixtures = [
     {
       in: 'This is a\nparagraph.',
@@ -47,11 +45,7 @@ test('fixtures', function(t) {
     }
   ]
 
-  var proc = unified()
-    .use(markdown)
-    .use(breaks)
-    .use(remark2rehype)
-    .use(html)
+  var proc = unified().use(markdown).use(breaks).use(remark2rehype).use(html)
 
   fixtures.forEach(check)
 

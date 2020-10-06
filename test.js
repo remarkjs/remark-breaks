@@ -9,15 +9,6 @@ var breaks = require('.')
 
 test('breaks()', function (t) {
   t.equal(typeof breaks, 'function', 'should be a function')
-
-  t.throws(
-    function () {
-      unified().use(breaks).freeze()
-    },
-    /^Error: Missing parser to attach `remark-breaks` to/,
-    'should not throw if without parser'
-  )
-
   t.end()
 })
 

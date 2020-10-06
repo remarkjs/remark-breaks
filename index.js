@@ -2,53 +2,48 @@
 
 module.exports = breaks
 
-var lineFeed = 10
-var space = 32
+var visit = require('unist-util-visit')
+
+var find = /[\t ]*(?:\r?\n|\r)/g
+
+var splice = [].splice
 
 function breaks() {
-  var parser = this.Parser
-  var tokenizers
-
-  if (!isRemarkParser(parser)) {
-    throw new Error('Missing parser to attach `remark-breaks` to')
-  }
-
-  tokenizers = parser.prototype.inlineTokenizers
-
-  tokenizeBreak.locator = tokenizers.break.locator
-
-  tokenizers.break = tokenizeBreak
-
-  function tokenizeBreak(eat, value, silent) {
-    var length = value.length
-    var index = -1
-    var code
-
-    while (++index < length) {
-      code = value.charCodeAt(index)
-
-      if (code === lineFeed) {
-        /* istanbul ignore if - never used (yet) */
-        if (silent) {
-          return true
-        }
-
-        return eat(value.slice(0, index + 1))({type: 'break'})
-      }
-
-      if (code !== space) {
-        return
-      }
-    }
-  }
+  return transform
 }
 
-function isRemarkParser(parser) {
-  return Boolean(
-    parser &&
-      parser.prototype &&
-      parser.prototype.inlineTokenizers &&
-      parser.prototype.inlineTokenizers.break &&
-      parser.prototype.inlineTokenizers.break.locator
-  )
+function transform(tree) {
+  visit(tree, 'text', ontext)
+}
+
+function ontext(node, index, parent) {
+  var result = []
+  var start = 0
+  var match
+  var position
+
+  find.lastIndex = 0
+
+  match = find.exec(node.value)
+
+  while (match) {
+    position = match.index
+
+    if (start !== position) {
+      result.push({type: 'text', value: node.value.slice(start, position)})
+    }
+
+    result.push({type: 'break'})
+    start = position + match[0].length
+    match = find.exec(node.value)
+  }
+
+  if (result.length > -1) {
+    if (start < node.value.length) {
+      result.push({type: 'text', value: node.value.slice(start)})
+    }
+
+    splice.apply(parent.children, [index, 1].concat(result))
+    return index + result.length
+  }
 }

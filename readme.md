@@ -87,12 +87,16 @@ attacks.
 
 ## Related
 
-*   [`remark-frontmatter`](https://github.com/remarkjs/remark-frontmatter)
-    — Frontmatter (yaml, toml, and more) support
+*   [`remark-gfm`](https://github.com/remarkjs/remark-gfm)
+    — GitHub Flavored Markdown
 *   [`remark-github`](https://github.com/remarkjs/remark-github)
     — Auto-link references like in GitHub issues, PRs, and comments
+*   [`remark-footnotes`](https://github.com/remarkjs/remark-footnotes)
+    — Footnotes
+*   [`remark-frontmatter`](https://github.com/remarkjs/remark-frontmatter)
+    — Frontmatter (YAML, TOML, and more) support
 *   [`remark-math`](https://github.com/rokt33r/remark-math)
-    — Inline and block math
+    — Math
 
 ## Contribute
 

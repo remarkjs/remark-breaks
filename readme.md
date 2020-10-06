@@ -10,6 +10,13 @@
 
 [**remark**][remark] plugin to add break support, without needing spaces.
 
+## Note!
+
+This plugin is ready for the new parser in remark
+([`micromark`](https://github.com/micromark/micromark),
+see [`remarkjs/remark#536`](https://github.com/remarkjs/remark/pull/536)).
+A patch version was released (`2.0.1`) that works with old and new remark.
+
 ## Install
 
 [npm][]:

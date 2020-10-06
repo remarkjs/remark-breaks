@@ -64,7 +64,7 @@ test('fixtures', function (t) {
     {
       in: 'None.',
       out: '<p>None.</p>',
-      name: 'multiple'
+      name: 'none'
     },
     {
       in: [
@@ -114,8 +114,8 @@ test('fixtures', function (t) {
         'emphasis</em>.</p>',
         '<p>in a <strong>strong<br>',
         'strong</strong>.</p>',
-        '<p>setext</p>',
-        '<h1>heading</h1>',
+        '<h1>setext<br>',
+        'heading</h1>',
         '<blockquote>',
         '<p>block<br>',
         'quote.</p>',

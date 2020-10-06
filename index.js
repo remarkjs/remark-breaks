@@ -38,7 +38,7 @@ function ontext(node, index, parent) {
     match = find.exec(node.value)
   }
 
-  if (result.length > -1) {
+  if (result.length > 0) {
     if (start < node.value.length) {
       result.push({type: 'text', value: node.value.slice(start)})
     }

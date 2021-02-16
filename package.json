@@ -43,7 +43,7 @@
     "tape": "^5.0.0",
     "tinyify": "^3.0.0",
     "unified": "^9.0.0",
-    "xo": "^0.33.0"
+    "xo": "^0.37.0"
   },
   "scripts": {
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
@@ -73,9 +73,10 @@
     "prettier": true,
     "esnext": false,
     "rules": {
-      "unicorn/no-fn-reference-in-iterator": "off"
+      "unicorn/no-array-callback-reference": "off"
     },
     "ignores": [
+      "types/",
       "remark-breaks.js"
     ]
   },

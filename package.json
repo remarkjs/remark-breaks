@@ -29,6 +29,9 @@
     "index.js",
     "types/index.d.ts"
   ],
+  "dependencies": {
+    "unist-util-visit": "^2.0.0"
+  },
   "devDependencies": {
     "browserify": "^17.0.0",
     "dtslint": "^4.0.0",

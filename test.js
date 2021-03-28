@@ -129,11 +129,15 @@ test('fixtures', function (t) {
     }
   ]
 
-  fixtures.forEach(check)
+  var index = -1
+
+  while (++index < fixtures.length) {
+    t.equal(
+      String(proc.processSync(fixtures[index].in)),
+      fixtures[index].out,
+      fixtures[index].name
+    )
+  }
 
   t.end()
-
-  function check(fixture) {
-    t.equal(String(proc.processSync(fixture.in)), fixture.out, fixture.name)
-  }
 })

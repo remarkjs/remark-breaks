@@ -19,6 +19,9 @@ A patch version was released (`2.0.1`) that works with old and new remark.
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -35,24 +38,25 @@ This is a
 paragraph.
 ```
 
-And our script, `example.js`, looks as follows:
+And our module, `example.js`, looks as follows:
 
 ```js
-var vfile = require('to-vfile')
-var report = require('vfile-reporter')
-var unified = require('unified')
-var markdown = require('remark-parse')
-var remark2rehype = require('remark-rehype')
-var html = require('rehype-stringify')
-var breaks = require('remark-breaks')
+import {readSync} from 'to-vfile'
+import {unified} from 'unified'
+import remarkParse from 'remark-parse'
+import remarkBreaks from 'remark-breaks'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+
+const file = readSync('example.md')
 
 unified()
-  .use(markdown)
-  .use(breaks)
-  .use(remark2rehype)
-  .use(html)
-  .process(vfile.readSync('example.md'), function(err, file) {
-    if (err) throw err
+  .use(remarkParse)
+  .use(remarkBreaks)
+  .use(remarkRehype)
+  .use(rehypeStringify)
+  .process(file)
+  .then((file) => {
     console.log(String(file))
   })
 ```
@@ -73,7 +77,10 @@ paragraph.</p>
 
 ## API
 
-### `remark().use(breaks)`
+This package exports no identifiers.
+The default export is `remarkBreaks`.
+
+### `unified().use(remarkBreaks)`
 
 Plugin to add break support without needing spaces.
 This adds support for GitHub style (in issues, pull requests, comments, and

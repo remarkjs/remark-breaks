@@ -5,14 +5,14 @@ import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import remarkBreaks from './index.js'
 
-test('remarkBreaks', function (t) {
-  var proc = unified()
+test('remarkBreaks', (t) => {
+  const proc = unified()
     .use(remarkParse)
     .use(remarkBreaks)
     .use(remarkRehype)
     .use(rehypeStringify)
 
-  var fixtures = [
+  const fixtures = [
     {
       in: 'This is a\nparagraph.',
       out: '<p>This is a<br>\nparagraph.</p>',
@@ -126,7 +126,7 @@ test('remarkBreaks', function (t) {
     }
   ]
 
-  var index = -1
+  let index = -1
 
   while (++index < fixtures.length) {
     t.equal(

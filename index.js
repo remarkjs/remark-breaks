@@ -1,14 +1,10 @@
-'use strict'
-
-module.exports = breaks
-
-var visit = require('unist-util-visit')
+import visit from 'unist-util-visit'
 
 var find = /[\t ]*(?:\r?\n|\r)/g
 
 var splice = [].splice
 
-function breaks() {
+export default function remarkBreaks() {
   return transform
 }
 

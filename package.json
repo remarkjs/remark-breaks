@@ -24,10 +24,11 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "types": "types/index.d.ts",
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
   "files": [
-    "index.js",
-    "types/index.d.ts"
+    "index.js"
   ],
   "dependencies": {
     "unist-util-visit": "^2.0.0"
@@ -64,6 +65,8 @@
     "prettier": true,
     "esnext": false,
     "rules": {
+      "no-var": "off",
+      "prefer-arrow-callback": "off",
       "unicorn/no-array-callback-reference": "off"
     },
     "ignores": [

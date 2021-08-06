@@ -1,11 +1,9 @@
-'use strict'
-
-var test = require('tape')
-var unified = require('unified')
-var markdown = require('remark-parse')
-var html = require('rehype-stringify')
-var remark2rehype = require('remark-rehype')
-var breaks = require('.')
+import test from 'tape'
+import unified from 'unified'
+import markdown from 'remark-parse'
+import html from 'rehype-stringify'
+import remark2rehype from 'remark-rehype'
+import breaks from './index.js'
 
 test('breaks()', function (t) {
   t.equal(typeof breaks, 'function', 'should be a function')

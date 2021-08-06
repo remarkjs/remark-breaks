@@ -1,5 +1,2 @@
 coverage/
-remark-breaks.js
-remark-breaks.min.js
-*.json
 *.md

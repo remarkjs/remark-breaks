@@ -1,4 +1,4 @@
-import visit from 'unist-util-visit'
+import {visit} from 'unist-util-visit'
 
 var find = /[\t ]*(?:\r?\n|\r)/g
 

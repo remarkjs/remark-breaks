@@ -1,17 +1,16 @@
 import test from 'tape'
-import unified from 'unified'
-import markdown from 'remark-parse'
-import html from 'rehype-stringify'
-import remark2rehype from 'remark-rehype'
-import breaks from './index.js'
+import {unified} from 'unified'
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import remarkBreaks from './index.js'
 
-test('breaks()', function (t) {
-  t.equal(typeof breaks, 'function', 'should be a function')
-  t.end()
-})
-
-test('fixtures', function (t) {
-  var proc = unified().use(markdown).use(breaks).use(remark2rehype).use(html)
+test('remarkBreaks', function (t) {
+  var proc = unified()
+    .use(remarkParse)
+    .use(remarkBreaks)
+    .use(remarkRehype)
+    .use(rehypeStringify)
 
   var fixtures = [
     {

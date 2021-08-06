@@ -1,12 +1,21 @@
+/**
+ * @typedef {import('mdast').Root} Root
+ * @typedef {import('mdast').PhrasingContent} PhrasingContent
+ */
+
 import {visit} from 'unist-util-visit'
 
 const find = /[\t ]*(?:\r?\n|\r)/g
 
-const splice = [].splice
-
+/**
+ * Plugin to add hard line break support (without needing spaces or escapes).
+ *
+ * @type {import('unified').Plugin<void[], Root>}
+ */
 export default function remarkBreaks() {
   return (tree) => {
     visit(tree, 'text', (node, index, parent) => {
+      /** @type {PhrasingContent[]} */
       const result = []
       let start = 0
 
@@ -26,12 +35,12 @@ export default function remarkBreaks() {
         match = find.exec(node.value)
       }
 
-      if (result.length > 0) {
+      if (result.length > 0 && parent && typeof index === 'number') {
         if (start < node.value.length) {
           result.push({type: 'text', value: node.value.slice(start)})
         }
 
-        splice.apply(parent.children, [index, 1].concat(result))
+        parent.children.splice(index, 1, ...result)
         return index + result.length
       }
     })

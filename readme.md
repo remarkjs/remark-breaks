@@ -43,7 +43,7 @@ This is a remark plugin that transforms mdast.
 
 This plugin is useful if you want to display user content closer to how it was
 authored, because when a user includes a line ending, it’ll show as such.
-GitHub does this in a few places (comments/issues/PRs/releases), but it’s not
+GitHub does this in a few places (comments, issues, PRs, and releases), but it’s not
 semantic according to HTML and not compliant to markdown.
 Markdown already has two ways to include hard breaks, namely trailing spaces and
 escapes (note that `␠` represents a normal space):
@@ -63,7 +63,7 @@ recommended to use escapes instead.
 ## Install
 
 This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-In Node.js (12.20+, 14.14+, 16.0+), install with [npm][]:
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 
 ```sh
 npm install remark-breaks
@@ -164,7 +164,7 @@ versions of Node.js.
 As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
-This plugin works with `unified` 6+ and `remark` 7+.
+This plugin works with `unified` version 6+ and `remark` version 7+.
 
 ## Security
 

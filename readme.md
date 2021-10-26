@@ -43,8 +43,8 @@ This is a remark plugin that transforms mdast.
 
 This plugin is useful if you want to display user content closer to how it was
 authored, because when a user includes a line ending, it’ll show as such.
-GitHub does this in a few places (comments, issues, PRs, and releases), but it’s not
-semantic according to HTML and not compliant to markdown.
+GitHub does this in a few places (comments, issues, PRs, and releases), but it’s
+not semantic according to HTML and not compliant to markdown.
 Markdown already has two ways to include hard breaks, namely trailing spaces and
 escapes (note that `␠` represents a normal space):
 

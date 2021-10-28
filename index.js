@@ -8,7 +8,8 @@ import {visit} from 'unist-util-visit'
 const find = /[\t ]*(?:\r?\n|\r)/g
 
 /**
- * Plugin to add hard line break support (without needing spaces or escapes).
+ * Plugin to support hard breaks without needing spaces or escapes (turns enters
+ * into `<br>`s).
  *
  * @type {import('unified').Plugin<void[], Root>}
  */

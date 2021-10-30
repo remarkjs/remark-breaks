@@ -149,7 +149,7 @@ by zero or more spaces and tabs.
 
 ## Syntax tree
 
-This plugin adds mdast [`Break`][break] nodes from to the syntax tree.
+This plugin adds mdast [`Break`][break] nodes to the syntax tree.
 These are the same nodes that represent breaks with spaces or escapes.
 
 ## Types

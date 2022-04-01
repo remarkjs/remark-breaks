@@ -69,17 +69,17 @@ In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 npm install remark-breaks
 ```
 
-In Deno with [Skypack][]:
+In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import remarkBreaks from 'https://cdn.skypack.dev/remark-breaks@3?dts'
+import remarkBreaks from 'https://esm.sh/remark-breaks@3'
 ```
 
-In browsers with [Skypack][]:
+In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import remarkBreaks from 'https://cdn.skypack.dev/remark-breaks@3?min'
+  import remarkBreaks from 'https://esm.sh/remark-breaks@3?bundle'
 </script>
 ```
 
@@ -231,7 +231,7 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[skypack]: https://www.skypack.dev
+[esmsh]: https://esm.sh
 
 [health]: https://github.com/remarkjs/.github
 

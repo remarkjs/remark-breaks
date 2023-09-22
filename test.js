@@ -1,17 +1,20 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {unified} from 'unified'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import remarkBreaks from './index.js'
 
-test('remarkBreaks', (t) => {
-  const proc = unified()
-    .use(remarkParse)
-    .use(remarkBreaks)
-    .use(remarkRehype)
-    .use(rehypeStringify)
+test('remarkBreaks', async function (t) {
+  await t.test('should expose the public api', async function () {
+    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+      'default'
+    ])
+  })
+})
 
+test('fixtures', async function (t) {
   const fixtures = [
     {
       in: 'This is a\nparagraph.',
@@ -125,16 +128,22 @@ test('remarkBreaks', (t) => {
       name: 'document'
     }
   ]
-
   let index = -1
 
   while (++index < fixtures.length) {
-    t.equal(
-      String(proc.processSync(fixtures[index].in)),
-      fixtures[index].out,
-      fixtures[index].name
-    )
+    const fixture = fixtures[index]
+    await t.test(fixture.name, async function () {
+      assert.equal(
+        String(
+          await unified()
+            .use(remarkParse)
+            .use(remarkBreaks)
+            .use(remarkRehype)
+            .use(rehypeStringify)
+            .process(fixture.in)
+        ),
+        fixture.out
+      )
+    })
   }
-
-  t.end()
 })

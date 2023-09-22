@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {unified} from 'unified'
 import rehypeStringify from 'rehype-stringify'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
+import {unified} from 'unified'
 import remarkBreaks from './index.js'
 
 test('remarkBreaks', async function (t) {

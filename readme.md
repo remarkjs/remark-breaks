@@ -8,8 +8,8 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**remark**][remark] plugin to support hard breaks without needing spaces or
-escapes (turns enters into `<br>`s).
+**[remark][]** plugin to support hard breaks without needing spaces or escapes
+(turns enters into `<br>`s).
 
 ## Contents
 
@@ -32,12 +32,6 @@ escapes (turns enters into `<br>`s).
 
 This package is a [unified][] ([remark][]) plugin to turn soft line endings
 (enters) into hard breaks (`<br>`s)
-
-**unified** is a project that transforms content with abstract syntax trees
-(ASTs).
-**remark** adds support for markdown to unified.
-**mdast** is the markdown AST that remark uses.
-This is a remark plugin that transforms mdast.
 
 ## When should I use this?
 
@@ -62,8 +56,8 @@ recommended to use escapes instead.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
-In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
+This package is [ESM only][esm].
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install remark-breaks
@@ -85,62 +79,65 @@ In browsers with [`esm.sh`][esmsh]:
 
 ## Use
 
-Say we have the following file, `example.md` (note: there are no spaces after
+Say we have the following file `example.md` (note: there are no spaces after
 `a`):
 
 ```markdown
-This is a
-paragraph.
+Mars is
+the fourth planet
 ```
 
-And our module, `example.js`, looks as follows:
+…and a module `example.js`:
 
 ```js
+import rehypeStringify from 'rehype-stringify'
+import remarkBreaks from 'remark-breaks'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
 import {read} from 'to-vfile'
 import {unified} from 'unified'
-import remarkParse from 'remark-parse'
-import remarkBreaks from 'remark-breaks'
-import remarkRehype from 'remark-rehype'
-import rehypeStringify from 'rehype-stringify'
 
-main()
+const file = await unified()
+  .use(remarkParse)
+  .use(remarkBreaks)
+  .use(remarkRehype)
+  .use(rehypeStringify)
+  .process(await read('example.md'))
 
-async function main() {
-  const file = await unified()
-    .use(remarkParse)
-    .use(remarkBreaks)
-    .use(remarkRehype)
-    .use(rehypeStringify)
-    .process(await read('example.md'))
-
-  console.log(String(file))
-}
+console.log(String(file))
 ```
 
-Now, running `node example` yields:
+…then running `node example.js` yields:
 
 ```html
-<p>This is a<br>
-paragraph.</p>
+<p>Mars is<br>
+the fourth planet</p>
 ```
 
-Without `remark-breaks`, you’d get:
-
-```html
-<p>This is a
-paragraph.</p>
-```
+> 👉 **Note**: Without `remark-breaks`, you’d get:
+>
+> ```html
+> <p>Mars is
+> the fourth planet</p>
+> ```
 
 ## API
 
 This package exports no identifiers.
-The default export is `remarkBreaks`.
+The default export is [`remarkBreaks`][api-remark-breaks].
 
 ### `unified().use(remarkBreaks)`
 
 Support hard breaks without needing spaces or escapes (turns enters into
 `<br>`s).
-There are no options.
+
+###### Parameters
+
+There are no parameters.
+
+###### Returns
+
+Transform ([`Transformer`][unified-transformer]).
 
 ## Syntax
 
@@ -149,27 +146,30 @@ by zero or more spaces and tabs.
 
 ## Syntax tree
 
-This plugin adds mdast [`Break`][break] nodes to the syntax tree.
+This plugin adds mdast [`Break`][mdast-break] nodes to the syntax tree.
 These are the same nodes that represent breaks with spaces or escapes.
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-There are no extra exported types.
+It exports no additional types.
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `remark-breaks@^3`,
+compatible with Node.js 12.
 
 This plugin works with `unified` version 6+ and `remark` version 7+.
 
 ## Security
 
-Use of `remark-breaks` does not involve [**rehype**][rehype] ([**hast**][hast])
-or user content so there are no openings for [cross-site scripting (XSS)][xss]
+Use of `remark-breaks` does not involve **[rehype][]** (**[hast][]**) or user
+content so there are no openings for [cross-site scripting (XSS)][wiki-xss]
 attacks.
 
 ## Related
@@ -215,9 +215,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/remark-breaks
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/remark-breaks.svg
+[size-badge]: https://img.shields.io/bundlejs/size/remark-breaks
 
-[size]: https://bundlephobia.com/result?p=remark-breaks
+[size]: https://bundlejs.com/?q=remark-breaks
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -231,30 +231,36 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
 [esmsh]: https://esm.sh
 
 [health]: https://github.com/remarkjs/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
+[contributing]: https://github.com/remarkjs/.github/blob/main/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/HEAD/support.md
+[support]: https://github.com/remarkjs/.github/blob/main/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/HEAD/code-of-conduct.md
+[coc]: https://github.com/remarkjs/.github/blob/main/code-of-conduct.md
 
 [license]: license
 
 [author]: https://wooorm.com
 
-[unified]: https://github.com/unifiedjs/unified
+[hast]: https://github.com/syntax-tree/hast
 
-[remark]: https://github.com/remarkjs/remark
-
-[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
-
-[typescript]: https://www.typescriptlang.org
+[mdast-break]: https://github.com/syntax-tree/mdast#break
 
 [rehype]: https://github.com/rehypejs/rehype
 
-[hast]: https://github.com/syntax-tree/hast
+[remark]: https://github.com/remarkjs/remark
 
-[break]: https://github.com/syntax-tree/mdast#break
+[typescript]: https://www.typescriptlang.org
+
+[unified]: https://github.com/unifiedjs/unified
+
+[unified-transformer]: https://github.com/unifiedjs/unified#transformer
+
+[wiki-xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[api-remark-breaks]: #unifieduseremarkbreaks

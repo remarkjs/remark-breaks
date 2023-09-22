@@ -1,6 +1,6 @@
 {
   "name": "remark-breaks",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "remark plugin to add break support, without needing spaces",
   "license": "MIT",
   "keywords": [

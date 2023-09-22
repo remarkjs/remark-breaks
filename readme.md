@@ -66,14 +66,14 @@ npm install remark-breaks
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import remarkBreaks from 'https://esm.sh/remark-breaks@3'
+import remarkBreaks from 'https://esm.sh/remark-breaks@4'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import remarkBreaks from 'https://esm.sh/remark-breaks@3?bundle'
+  import remarkBreaks from 'https://esm.sh/remark-breaks@4?bundle'
 </script>
 ```
 
